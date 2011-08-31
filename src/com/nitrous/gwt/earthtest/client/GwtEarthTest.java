@@ -61,17 +61,18 @@ public class GwtEarthTest implements EntryPoint {
      */
     private void loadMapContent() {
         // The GEPlugin is the core class and is a great place to start browsing the API
-        GEPlugin plugin = earth.getGEPlugin();
+        GEPlugin ge = earth.getGEPlugin();
+        ge.getWindow().setVisibility(true);
         
         // show some layers
-        plugin.enableLayer(GELayerId.LAYER_BUILDINGS, true);
-        plugin.enableLayer(GELayerId.LAYER_BORDERS, true);
-        plugin.enableLayer(GELayerId.LAYER_ROADS, true);
-        plugin.enableLayer(GELayerId.LAYER_TERRAIN, true);
-        plugin.enableLayer(GELayerId.LAYER_TREES, true);
+        ge.enableLayer(GELayerId.LAYER_BUILDINGS, true);
+        ge.enableLayer(GELayerId.LAYER_BORDERS, true);
+        ge.enableLayer(GELayerId.LAYER_ROADS, true);
+        ge.enableLayer(GELayerId.LAYER_TERRAIN, true);
+        ge.enableLayer(GELayerId.LAYER_TREES, true);
 
         // show an over-view pane
-        plugin.getOptions().setOverviewMapVisibility(true);
+        ge.getOptions().setOverviewMapVisibility(true);
     }
 
 }
