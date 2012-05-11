@@ -21,6 +21,7 @@ import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.nitrous.gwt.earth.client.api.GELayerId;
 import com.nitrous.gwt.earth.client.api.GEPlugin;
 import com.nitrous.gwt.earth.client.api.GEPluginReadyListener;
+import com.nitrous.gwt.earth.client.api.GoogleEarth;
 import com.nitrous.gwt.earth.client.api.GoogleEarthWidget;
 
 /**
@@ -32,7 +33,24 @@ public class GwtEarthTest implements EntryPoint {
 
     private GoogleEarthWidget earth;
 
+    /**
+     * Application Entry Point
+     */
     public void onModuleLoad() {
+    	// Load the Earth API
+    	GoogleEarth.loadApi(new Runnable(){
+			@Override
+			public void run() {
+				// start the application
+				onApiLoaded();				
+			}    		
+    	});    	
+    }
+    
+    /**
+     * Called once the Google Earth API has loaded
+     */
+    public void onApiLoaded() {
         // construct the UI widget
         earth = new GoogleEarthWidget();
 
